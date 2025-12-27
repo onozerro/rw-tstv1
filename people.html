@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Rowex - People</title>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #111111 !important;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 900px;
+    margin: 0 auto;
+    background-color: #111111;
+}
+
+.content {
+    padding: 20px;
+    background-color: #FFFFFF;
+    text-align: center;
+    border: 2px solid #CC5500;
+    border-top: none;
+}
+</style>
+<link href="favicon.png" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="container">
+    <div id="header-container"></div>
+    
+    <div class="content">
+        <img src="Images/error.png" style="width:50px; display:block; margin:20px auto 0 auto;"/>
+        <p style="margin: 20px 0; font-size: 18px;">This page is under development.</p>
+    </div>
+</div>
+
+<div id="footer-container"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('includes/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+        })
+        .catch(error => {
+            document.getElementById('header-container').innerHTML = '<div style="color: #CC5500; padding: 10px; text-align: center;">Error loading header</div>';
+        });
+    
+    fetch('includes/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        })
+        .catch(error => {
+            document.getElementById('footer-container').innerHTML = '<div style="color: #CC5500; padding: 10px; text-align: center;">Error loading footer</div>';
+        });
+});
+</script>
+
+<script src="auth.js"></script>
+</body>
+</html>
